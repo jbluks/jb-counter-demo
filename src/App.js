@@ -1,14 +1,31 @@
 import React from 'react';
 import './App.css';
+import axios from 'axios'
+
+const url = 'https://jb-counter-demo-server.herokuapp.com'
 
 class App extends React.Component {
   state = {
     counter: 0
   }
 
-  increment = () => this.setState({ 
-    counter: this.state.counter + 1
-  })
+  componentDidMount() {
+    axios.get(url)
+      .then(response => {
+        this.setState({
+          counter: response.data.counter
+        })
+      })
+  }
+
+  increment = () => {
+    axios.put(url)
+      .then(response => {
+        this.setState({
+          counter: response.data.counter
+        })
+      }) 
+}
 
   render() {
     return (
