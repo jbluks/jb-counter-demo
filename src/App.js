@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios'
 
-const url = 'https://jb-counter-demo-server.herokuapp.com/counter'
+const url = 'http://ec2-34-219-164-189.us-west-2.compute.amazonaws.com/counter'
 
 class App extends React.Component {
   state = {
